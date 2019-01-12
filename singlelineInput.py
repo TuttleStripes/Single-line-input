@@ -20,7 +20,6 @@ def slInput(inPhrase, startLine = 3,linespacing = 0, command = None):
 	inList = []
 
 	def down():
-		pass
 		return f'\033[{startLine+(1+linespacing)*len(inList)};H'
 
 	def up():
