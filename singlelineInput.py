@@ -9,10 +9,10 @@ class c:
 	reset = '\033[0m'
 
 
-def slInput(inPhrase, startLine = 3,linespacing = 0, command = None):
+def slInput(inPhrase, startline = 3,linespacing = 0, command = None):
 	'''
 	inPhrase is the phrase that is printed as the input line
-	startLine is the line that the input line is on
+	startline is the line that the input line is on
 	linespacing is the number of blank lines between output lines, default 0
 	command is a function that manipulates the output, default is None
 	'''
@@ -20,10 +20,10 @@ def slInput(inPhrase, startLine = 3,linespacing = 0, command = None):
 	inList = []
 
 	def down():
-		return f'\033[{startLine+(1+linespacing)*len(inList)};H'
+		return f'\033[{startline+(1+linespacing)*len(inList)};H'
 
 	def up():
-		return f'\033[{startLine};H'
+		return f'\033[{startline};H'
 
 	def sl():
 		nonlocal inList
@@ -32,7 +32,7 @@ def slInput(inPhrase, startLine = 3,linespacing = 0, command = None):
 			if command != None:
 				while True:
 					inList += [input('\033[{0}H{1}{2}{3}\033[K'.format(
-																	  startLine,
+																	  startline,
 																	  c.green,
 																	  inPhrase,
 																	  c.reset,
@@ -46,7 +46,7 @@ def slInput(inPhrase, startLine = 3,linespacing = 0, command = None):
 			else:
 				while True:
 					inList += [input('\033[{0}H{1}{2}{3}\033[K'.format(
-																	  startLine,
+																	  startline,
 																	  c.green,
 																	  inPhrase,
 																	  c.reset,
